@@ -1,6 +1,6 @@
 import WorkoutDetailsCard from "@/components/shared/WorkoutDetailsCard";
 import { getAllWorkouts } from "@/lib/library";
-import React from "react";
+import { notFound } from "next/navigation";
 
 type AppDetailsPageProps = {
   params: Promise<{
@@ -17,11 +17,9 @@ const WorkoutDetailsPage = async ({ params }: AppDetailsPageProps) => {
     (workout: { id: number }) => workout.id === parseInt(id),
   );
   if (!workout) {
-    return <div>Workout not found</div>;
+    notFound();
   }
-  return (
-    <WorkoutDetailsCard workout={workout}></WorkoutDetailsCard>
-  );
+  return <WorkoutDetailsCard workout={workout}></WorkoutDetailsCard>;
 };
 
 export default WorkoutDetailsPage;
