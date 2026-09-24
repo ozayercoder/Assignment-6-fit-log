@@ -1,11 +1,13 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useContext } from "react";
 import logo from "@/assets/logo.png";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { WorkoutContext } from "@/context/WorkoutContext";
 
 const Navbar = () => {
+  const { todaysPlans, savedPlans } = useContext(WorkoutContext);
   const pathname = usePathname();
   const links = (
     <>
@@ -73,7 +75,7 @@ const Navbar = () => {
               <div className="badge bg-[#0C0D10]">
                 Primary{" "}
                 <span className="bg-[#ccff00] rounded-[9999] px-1.5 text-black font-semibold">
-                  0
+                  {todaysPlans.length}
                 </span>
               </div>
             </Link>
@@ -82,7 +84,7 @@ const Navbar = () => {
               <div className="badge bg-[#0C0D10]">
                 Saved{" "}
                 <span className=" rounded-[9999] border px-1.5 text-white font-semibold">
-                  0
+                  {savedPlans.length}
                 </span>
               </div>
             </Link>

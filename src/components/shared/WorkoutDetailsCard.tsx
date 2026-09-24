@@ -2,6 +2,8 @@ import { IWorkout } from "@/types/workouttype";
 import Image from "next/image";
 import { MdBookmarkAdd } from "react-icons/md";
 import { TbChecklist } from "react-icons/tb";
+import TodaysPlanButton from "../button/todaysPlanButton";
+import SaveButton from "../button/SaveButton";
 
 interface WorkoutDetailsCardProps {
   workout: IWorkout;
@@ -87,12 +89,8 @@ const WorkoutDetailsCard = ({ workout }: WorkoutDetailsCardProps) => {
             </ol>
           </div>
           <div className="flex gap-4">
-            <button className="flex gap-1 items-center bg-[#CCFF00] px-6 py-3 rounded-xl text-sm font-semibold text-black btn">
-              <TbChecklist /> Add to todays plan
-            </button>
-            <button className="flex gap-1 items-center border border-[#374151] text-[#E5E7EB] px-6 py-3 rounded-xl text-sm font-semibold btn">
-              <MdBookmarkAdd /> Save for later
-            </button>
+            <TodaysPlanButton workout={workout}/>
+            <SaveButton workout={workout}/>
           </div>
         </div>
       </div>
