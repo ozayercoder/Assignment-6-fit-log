@@ -29,7 +29,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="shadow-sm bg-base-200   ">
+    <div className="shadow-sm bg-[#0C0D10]   ">
       <div className="max-lg:collapse container mx-auto">
         <input id="navbar-1-toggle" className="peer hidden" type="checkbox" />
         <label
@@ -70,7 +70,7 @@ const Navbar = () => {
           </div>
           <div className="navbar-end">
             <Link href={"./"}>
-              <div className="badge">
+              <div className="badge bg-[#0C0D10]">
                 Primary{" "}
                 <span className="bg-[#ccff00] rounded-[9999] px-1.5 text-black font-semibold">
                   0
@@ -79,7 +79,7 @@ const Navbar = () => {
             </Link>
             <Link href={"./"}>
               {" "}
-              <div className="badge">
+              <div className="badge bg-[#0C0D10]">
                 Saved{" "}
                 <span className=" rounded-[9999] border px-1.5 text-white font-semibold">
                   0
