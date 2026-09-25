@@ -31,7 +31,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="shadow-sm bg-[#0C0D10]   ">
+    <div className="shadow-sm bg-[#0C0D10] sticky top-0 z-50">
       <div className="max-md:collapse container mx-auto">
         <input id="navbar-1-toggle" className="peer hidden" type="checkbox" />
         <label
