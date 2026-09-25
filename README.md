@@ -8,7 +8,7 @@
 
 ## 📸 Preview
 
-![Project Screenshot](./fitlog.png)
+![Project Screenshot](./Fitlog.png)
 
 ---
 
