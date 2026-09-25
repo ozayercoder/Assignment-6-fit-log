@@ -14,6 +14,8 @@ interface IWorkoutContext {
   setTodaysPlans: Dispatch<SetStateAction<IWorkout[]>>;
   savedPlans: IWorkout[];
   setSavedPlans: Dispatch<SetStateAction<IWorkout[]>>;
+  completedWorkouts: number[];
+  setCompletedWorkouts: Dispatch<SetStateAction<number[]>>;
 }
 
 interface WorkoutProviderProps {
@@ -25,16 +27,22 @@ export const WorkoutContext = createContext<IWorkoutContext>({
   setTodaysPlans: () => {},
   savedPlans: [],
   setSavedPlans: () => {},
+  completedWorkouts: [],
+  setCompletedWorkouts: () => {},
 });
 
 const WorkoutProvider = ({ children }: WorkoutProviderProps) => {
   const [todaysPlans, setTodaysPlans] = useState<IWorkout[]>([]);
   const [savedPlans, setSavedPlans] = useState<IWorkout[]>([]);
+  const [completedWorkouts, setCompletedWorkouts] = useState<number[]>([]);
+
   const sharedData: IWorkoutContext = {
     todaysPlans,
     setTodaysPlans,
     savedPlans,
     setSavedPlans,
+    completedWorkouts,
+    setCompletedWorkouts,
   };
 
   return (

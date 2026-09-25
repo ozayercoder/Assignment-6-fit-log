@@ -73,7 +73,7 @@ const Navbar = () => {
           <div className="navbar-end">
             <Link href={"./"}>
               <div className="badge bg-[#0C0D10]">
-                Primary{" "}
+                Plan{" "}
                 <span className="bg-[#ccff00] rounded-[9999] px-1.5 text-black font-semibold">
                   {todaysPlans.length}
                 </span>
