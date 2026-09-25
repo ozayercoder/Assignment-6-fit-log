@@ -105,7 +105,7 @@ const TodaysPlanCard = ({ currentPlans }: IStatsProps) => {
               </div>
             </div>
 
-            {/* Right Section */}
+           
             <div className="flex items-center gap-3">
               <Link href={`/${workout.id}`}>
                 <button className="btn rounded-full border border-[#374151]">
@@ -118,7 +118,7 @@ const TodaysPlanCard = ({ currentPlans }: IStatsProps) => {
                 disabled={isCompleted}
                 className={`btn rounded-full ${
                   isCompleted
-                    ? "bg-green-500 text-white"
+                    ? "bg-green-500 text-black"
                     : "bg-[#ccff00] text-black"
                 }`}
               >

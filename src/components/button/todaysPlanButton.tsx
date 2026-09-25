@@ -26,6 +26,17 @@ const TodaysPlanButton = ({ workout }: TodaysPlanButtonProps) => {
         theme: "dark",
         transition: Bounce,
       });
+    } else if (todaysPlans.length >= 5) {
+      toast.error("Maximum workout selected", {
+        position: "bottom-left",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: true,
+        theme: "dark",
+        transition: Bounce,
+      });
     } else {
       toast.success("Added to today's plan", {
         position: "bottom-left",
@@ -45,7 +56,11 @@ const TodaysPlanButton = ({ workout }: TodaysPlanButtonProps) => {
     <div>
       <button
         onClick={handleTodaysPlanButton}
-        className="flex gap-1 items-center bg-[#CCFF00] px-6 py-3 rounded-xl text-sm font-semibold text-black btn"
+        className={`${
+          todaysPlans.length >= 5
+            ? "btn cursor-not-allowed border border-[#374151] bg-[#1D222C] text-[#6B7280] opacity-60"
+            : "flex items-center gap-1 rounded-xl bg-[#CCFF00] px-6 py-3 text-sm font-semibold text-black btn"
+        }`}
       >
         <TbChecklist /> Add to todays plan
       </button>
