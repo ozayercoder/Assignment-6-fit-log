@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useContext } from "react";
+import { useContext } from "react";
 import logo from "@/assets/logo.png";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -13,7 +13,7 @@ const Navbar = () => {
     <>
       <li className="">
         <Link
-          href={"./"}
+          href="/"
           className={pathname === "/" ? "text-[#ccff00]" : "text-white"}
         >
           Workouts
@@ -22,7 +22,7 @@ const Navbar = () => {
 
       <li>
         <Link
-          href={"./myplan"}
+          href="/myplan"
           className={pathname === "/myplan" ? "text-[#ccff00]" : "text-white"}
         >
           My Plan
@@ -32,11 +32,11 @@ const Navbar = () => {
   );
   return (
     <div className="shadow-sm bg-[#0C0D10]   ">
-      <div className="max-lg:collapse container mx-auto">
+      <div className="max-md:collapse container mx-auto">
         <input id="navbar-1-toggle" className="peer hidden" type="checkbox" />
         <label
           htmlFor="navbar-1-toggle"
-          className="fixed inset-0 hidden max-lg:peer-checked:block"
+          className="fixed inset-0 hidden max-md:peer-checked:block"
         ></label>
         <div className="collapse-title navbar">
           <div className="navbar-start">
@@ -65,13 +65,13 @@ const Navbar = () => {
               <p className="text-xl font-bold">FITLOG</p>
             </div>
           </div>
-          <div className="navbar-center hidden lg:flex">
+          <div className="navbar-center hidden md:flex">
             <ul className="flex items-center gap-4 px-1 text-lg font-semibold">
               {links}
             </ul>
           </div>
           <div className="navbar-end">
-            <Link href={"./"}>
+            <Link href="/">
               <div className="badge bg-[#0C0D10]">
                 Plan{" "}
                 <span className="bg-[#ccff00] rounded-[9999] px-1.5 text-black font-semibold">
@@ -79,7 +79,7 @@ const Navbar = () => {
                 </span>
               </div>
             </Link>
-            <Link href={"./"}>
+            <Link href="/">
               {" "}
               <div className="badge bg-[#0C0D10]">
                 Saved{" "}
@@ -91,7 +91,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="collapse-content lg:hidden z-1">
+        <div className="collapse-content md:hidden z-1">
           <ul className="menu">{links}</ul>
         </div>
       </div>

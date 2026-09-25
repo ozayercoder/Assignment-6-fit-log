@@ -1,19 +1,21 @@
 "use client";
-import React, { useContext, useState } from "react";
+
+import { useContext, useState } from "react";
 import Stats from "./Stats";
 import { WorkoutContext } from "@/context/WorkoutContext";
 import Tabs from "./Tabs";
-
 import TodaysPlanCard from "./TodaysPlanCard";
 import SavedPlanCard from "./SavedPlanCard";
 
 const PlanContent = () => {
   const { todaysPlans, savedPlans } = useContext(WorkoutContext);
+
   const [selectedTab, setSelectedTab] = useState<"todays" | "saved">("todays");
 
   const [sortBy, setSortBy] = useState<"duration" | "calories" | "rating">(
     "duration",
   );
+
   const currentPlans = selectedTab === "todays" ? todaysPlans : savedPlans;
 
   const sortedPlans = [...currentPlans].sort((a, b) => {
@@ -27,18 +29,21 @@ const PlanContent = () => {
 
     return b.rating - a.rating;
   });
+
   return (
     <div>
-      <Stats currentPlans={currentPlans}></Stats>
+      <Stats currentPlans={currentPlans} />
+
       <Tabs
         selectedTab={selectedTab}
         setSelectedTab={setSelectedTab}
         sortBy={sortBy}
         setSortBy={setSortBy}
       />
+
       {currentPlans.length === 0 ? (
-        <div className="my-5 rounded-2xl border border-[#232732] bg-[#0f141c] py-16 text-center">
-          <h2 className="text-xl font-bold text-white">
+        <div className="my-4 rounded-2xl border border-[#232732] bg-[#0f141c] px-4 py-12 text-center md:my-5 md:py-16">
+          <h2 className="text-lg font-bold text-white md:text-xl">
             {selectedTab === "todays"
               ? "No workouts in today's plan"
               : "No saved workouts"}

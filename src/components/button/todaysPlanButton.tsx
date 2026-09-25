@@ -1,19 +1,23 @@
 "use client";
+
 import { WorkoutContext } from "@/context/WorkoutContext";
 import { IWorkout } from "@/types/workouttype";
 import React, { useContext } from "react";
 import { TbChecklist } from "react-icons/tb";
 import { Bounce, toast } from "react-toastify";
+
 interface TodaysPlanButtonProps {
   workout: IWorkout;
 }
+
 const TodaysPlanButton = ({ workout }: TodaysPlanButtonProps) => {
-  const data = useContext(WorkoutContext);
-  const { todaysPlans, setTodaysPlans } = data;
+  const { todaysPlans, setTodaysPlans } = useContext(WorkoutContext);
+
   const handleTodaysPlanButton = () => {
     const alreadyAdded = todaysPlans.some(
       (todaysworkout: IWorkout) => todaysworkout.id === workout.id,
     );
+
     if (alreadyAdded) {
       toast.error("Already Added to today's plan", {
         position: "bottom-left",
@@ -34,6 +38,7 @@ const TodaysPlanButton = ({ workout }: TodaysPlanButtonProps) => {
         closeOnClick: false,
         pauseOnHover: false,
         draggable: true,
+        progress: undefined,
         theme: "dark",
         transition: Bounce,
       });
@@ -49,20 +54,23 @@ const TodaysPlanButton = ({ workout }: TodaysPlanButtonProps) => {
         theme: "dark",
         transition: Bounce,
       });
+
       setTodaysPlans([...todaysPlans, workout]);
     }
   };
+
   return (
     <div>
       <button
         onClick={handleTodaysPlanButton}
-        className={`${
+        className={`w-full md:w-auto ${
           todaysPlans.length >= 5
             ? "btn cursor-not-allowed border border-[#374151] bg-[#1D222C] text-[#6B7280] opacity-60"
-            : "flex items-center gap-1 rounded-xl bg-[#CCFF00] px-6 py-3 text-sm font-semibold text-black btn"
+            : "btn flex items-center justify-center gap-1 rounded-xl bg-[#CCFF00] px-6 py-3 text-sm font-semibold text-black"
         }`}
       >
-        <TbChecklist /> Add to todays plan
+        <TbChecklist />
+        Add to todays plan
       </button>
     </div>
   );

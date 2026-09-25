@@ -10,38 +10,40 @@ interface WorkoutCardProps {
 const WorkoutCard = ({ workout }: WorkoutCardProps) => {
   return (
     <Link href={`./${workout.id}`} className="cursor-pointer">
-      <div className="card bg-base-200 p-5 shadow-sm">
+      <div className="card bg-base-200 p-4 shadow-sm md:p-5">
         <figure>
           <Image
             src={workout.image}
             alt={workout.name}
             width={400}
             height={250}
-            className="w-full h-62.5 object-cover"
+            className="h-52 w-full object-cover md:h-60 lg:h-62.5"
           />
         </figure>
-        <div className="pt-8">
-          <div>
-            <div className="flex flex-wrap gap-2">
-              {workout.muscleGroups.map((muscleGroup: string) => (
-                <div
-                  key={muscleGroup}
-                  className="badge bg-[#ccff00] text-black font-bold rounded-2xl p-3"
-                >
-                  {muscleGroup}
-                </div>
-              ))}
-            </div>
+
+        <div className="pt-6 md:pt-8">
+          <div className="flex flex-wrap gap-2">
+            {workout.muscleGroups.map((muscleGroup: string) => (
+              <div
+                key={muscleGroup}
+                className="badge rounded-2xl bg-[#ccff00] p-3 font-bold text-black"
+              >
+                {muscleGroup}
+              </div>
+            ))}
           </div>
-          <h2 className="card-title font-bold text-xl py-2">
+
+          <h2 className="card-title py-2 text-lg font-bold md:text-xl">
             {workout.name.toUpperCase()}
           </h2>
-          <div className="flex flex-wrap gap-1 py-2 text-[#9CA3AF] text-sm">
+
+          <div className="flex flex-wrap gap-1 py-2 text-sm text-[#9CA3AF]">
             {workout.equipment}
           </div>
+
           <div className="divider"></div>
 
-          <div className="flex items-center gap-5 text-xs text-base-content/60">
+          <div className="flex flex-wrap items-center gap-4 text-xs text-base-content/60 md:gap-5">
             <div className="flex items-center gap-1.5">
               <FaClock className="text-xs" />
               <span>{workout.duration} min</span>

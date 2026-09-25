@@ -19,10 +19,10 @@ const Stats = ({ currentPlans }: IStatsProps) => {
 
   return (
     <div>
-      <div className="flex justify-around rounded-2xl bg-[#13161D] px-6 py-8">
+      <div className="flex justify-around rounded-2xl bg-[#13161D] px-4 py-6 md:px-6 md:py-8">
         <div className="flex flex-col items-center">
-          <p className="text-[#8A92A0] text-xs">Exercises</p>
-          <h2 className="py-0.5 text-4xl font-bold text-[#CCFF00]">
+          <p className="text-xs text-[#8A92A0]">Exercises</p>
+          <h2 className="py-0.5 text-3xl font-bold text-[#CCFF00] md:text-4xl">
             {currentPlans.length}
           </h2>
         </div>
@@ -30,15 +30,19 @@ const Stats = ({ currentPlans }: IStatsProps) => {
         <div className="divider divider-horizontal"></div>
 
         <div className="flex flex-col items-center">
-          <p className="text-[#8A92A0] text-xs">Minutes</p>
-          <h2 className="py-0.5 text-4xl font-bold">{totalMinutes}</h2>
+          <p className="text-xs text-[#8A92A0]">Minutes</p>
+          <h2 className="py-0.5 text-3xl font-bold md:text-4xl">
+            {totalMinutes}
+          </h2>
         </div>
 
         <div className="divider divider-horizontal"></div>
 
         <div className="flex flex-col items-center">
-          <p className="text-[#8A92A0] text-xs">Calories</p>
-          <h2 className="py-0.5 text-4xl font-bold">{totalCalories}</h2>
+          <p className="text-xs text-[#8A92A0]">Calories</p>
+          <h2 className="py-0.5 text-3xl font-bold md:text-4xl">
+            {totalCalories}
+          </h2>
         </div>
       </div>
     </div>

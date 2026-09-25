@@ -3,38 +3,48 @@ import { FaHome } from "react-icons/fa";
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen bg-base-200 flex items-center justify-center px-6">
-      <div className="text-center max-w-xl">
-        <div className="relative mb-6">
-          <h1 className="text-[140px] sm:text-[180px] font-black leading-none tracking-tighter text-[#CCFF00]/10 select-none">
+    <main className="flex min-h-screen items-center justify-center bg-base-200 px-4 md:px-6">
+      <div className="w-full max-w-xl text-center">
+        {/* 404 */}
+        <div className="relative mb-5 md:mb-6 lg:mb-8">
+          <h1 className="select-none text-[100px] font-black leading-none tracking-tighter text-[#CCFF00]/10 md:text-[150px] lg:text-[180px]">
             404
           </h1>
 
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-5xl sm:text-7xl font-black text-[#CCFF00]">
+            <span className="text-4xl font-black text-[#CCFF00] md:text-6xl lg:text-7xl">
               404
             </span>
           </div>
         </div>
 
-        <h2 className="text-3xl sm:text-4xl font-bold mb-4">Page Not Found</h2>
+        {/* Heading */}
+        <h2 className="mb-3 text-2xl font-bold md:mb-4 md:text-3xl lg:text-4xl">
+          Page Not Found
+        </h2>
 
-        <p className="text-base-content/60 text-lg leading-relaxed mb-8">
+        {/* Description */}
+        <p className="mb-6 text-base leading-relaxed text-base-content/60 md:mb-8 md:text-lg">
           Oops! The page you are looking for does not exist or may have been
           moved to another location.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-          <Link href="/" className="btn bg-[#CCFF00] gap-2 px-6 text-black font-semibold">
+        {/* Button */}
+        <div className="flex items-center justify-center">
+          <Link
+            href="/"
+            className="btn w-full bg-[#CCFF00] px-6 font-semibold text-black md:w-auto"
+          >
             <FaHome />
             Back to Home
           </Link>
         </div>
 
-        <div className="mt-12 flex items-center justify-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[#CCFF00]" />
-          <span className="w-16 h-0.5 bg-base-content/10" />
-          <span className="w-2 h-2 rounded-full bg-[#CCFF00]" />
+        {/* Bottom decoration */}
+        <div className="mt-8 flex items-center justify-center gap-2 md:mt-10 lg:mt-12">
+          <span className="h-2 w-2 rounded-full bg-[#CCFF00]" />
+          <span className="h-0.5 w-12 bg-base-content/10 md:w-16" />
+          <span className="h-2 w-2 rounded-full bg-[#CCFF00]" />
         </div>
       </div>
     </main>

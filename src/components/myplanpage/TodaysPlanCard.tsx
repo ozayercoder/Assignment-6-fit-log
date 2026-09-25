@@ -9,7 +9,6 @@ import { useContext } from "react";
 import { FaRegClock, FaRegStar } from "react-icons/fa";
 import { MdOutlineDone } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
-
 import { TbFlameFilled } from "react-icons/tb";
 import { Bounce, toast } from "react-toastify";
 
@@ -58,17 +57,18 @@ const TodaysPlanCard = ({ currentPlans }: IStatsProps) => {
   };
 
   return (
-    <div className="my-5 flex flex-col gap-4">
+    <div className="my-4 flex flex-col gap-4 md:my-5">
       {currentPlans.map((workout) => {
         const isCompleted = completedWorkouts.includes(workout.id);
 
         return (
           <div
             key={workout.id}
-            className="flex w-full items-center justify-between rounded-2xl border border-[#232732] bg-[#0f141c] p-4 shadow-lg"
+            className="flex w-full flex-col gap-4 rounded-2xl border border-[#232732] bg-[#0f141c] p-4 shadow-lg md:flex-row md:items-center md:justify-between md:p-5"
           >
-            <div className="flex gap-4">
-              <div className="relative h-25 w-45 shrink-0 overflow-hidden rounded-xl bg-gray-800">
+            {/* Left Section */}
+            <div className="flex min-w-0 gap-4">
+              <div className="relative h-24 w-32 shrink-0 overflow-hidden rounded-xl bg-gray-800 md:h-25 md:w-40 lg:h-28 lg:w-44">
                 <Image
                   src={workout.image}
                   alt={workout.name}
@@ -77,16 +77,16 @@ const TodaysPlanCard = ({ currentPlans }: IStatsProps) => {
                 />
               </div>
 
-              <div>
-                <h2 className="pb-1 text-xl font-bold text-white">
+              <div className="min-w-0">
+                <h2 className="pb-1 text-lg font-bold text-white md:text-xl">
                   {workout.name.toUpperCase()}
                 </h2>
 
-                <p className="text-xs text-[#8e9bae] sm:text-sm">
+                <p className="text-xs text-[#8e9bae] md:text-sm">
                   {workout.equipment}
                 </p>
 
-                <div className="mt-4 flex items-center gap-4 text-xs text-[#d0d7de]">
+                <div className="mt-3 flex flex-wrap items-center gap-3 text-xs text-[#d0d7de] md:mt-4 md:gap-4">
                   <span className="flex items-center gap-1">
                     <FaRegClock className="text-[#ccff00]" />
                     {workout.duration} min
@@ -105,10 +105,10 @@ const TodaysPlanCard = ({ currentPlans }: IStatsProps) => {
               </div>
             </div>
 
-           
-            <div className="flex items-center gap-3">
-              <Link href={`/${workout.id}`}>
-                <button className="btn rounded-full border border-[#374151]">
+            {/* Right Section */}
+            <div className="flex items-center gap-2 md:shrink-0 md:gap-3">
+              <Link href={`/${workout.id}`} className="flex-1 md:flex-none">
+                <button className="btn w-full rounded-full border border-[#374151] md:w-auto">
                   View Details
                 </button>
               </Link>
@@ -116,7 +116,7 @@ const TodaysPlanCard = ({ currentPlans }: IStatsProps) => {
               <button
                 onClick={() => handleMarkedButton(workout.id)}
                 disabled={isCompleted}
-                className={`btn rounded-full ${
+                className={`btn flex-1 rounded-full md:flex-none ${
                   isCompleted
                     ? "bg-green-500 text-black"
                     : "bg-[#ccff00] text-black"

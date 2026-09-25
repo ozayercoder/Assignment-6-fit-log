@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       <Banner />
-      <Library ></Library>
+      <Library></Library>
     </div>
   );
 }

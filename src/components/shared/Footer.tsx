@@ -1,16 +1,19 @@
 import Image from "next/image";
-import React from "react";
 import logo from "@/assets/logo.png";
+
 const Footer = () => {
   return (
-    <div className= "shadow-sm bg-[#0C0D10]">
-      <footer className="footer sm:footer-horizontal container mx-auto  text-neutral-content items-center p-4">
-        <aside className="grid-flow-col items-center">
-          <Image src={logo} alt="logo"></Image>
+    <div className="bg-[#0C0D10] shadow-sm">
+      <footer className="container mx-auto flex flex-col items-center gap-3 p-4 text-neutral-content md:flex-row md:justify-between md:gap-0">
+        <aside className="flex items-center gap-2">
+          <Image src={logo} alt="logo" />
           <p className="text-lg font-bold">FITLOG</p>
         </aside>
-        <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
-          <p className="text-[#6B7280] text-sm">© 2026 FitLog — Workout Library. Train hard, log honest.</p>
+
+        <nav>
+          <p className="text-center text-xs text-[#6B7280] md:text-right md:text-sm">
+            © 2026 FitLog — Workout Library. Train hard, log honest.
+          </p>
         </nav>
       </footer>
     </div>
